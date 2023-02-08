@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            body {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background: linear-gradient(120deg,#2980b9,#8e44ad);
+            }
+            .myid {
+                position: absolute;
+                top: 49%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 340px;
+                height: 230px;
+                background: white;
+                border-radius: 20px;
+            }
+            .myid h1 {
+                text-align: center;
+            }
+            .myid p {
+                text-align: center;
+            }
+        </style>
         <title>Login</title>
     </head>
-    <body align = "center">
+    <body>
+        <div class="myid">
         <h1>Login</h1>
         {% for message in messages%}
-        <h4 style="color: red; background-color: black;"> {{message}}</h4>
+        <h4 style="color: red; background-color: black;" align="center"> {{message}}</h4>
         {% endfor %}
         <form action="login" method="post" autocomplete="off">
             {% csrf_token %}
             <p>
-                <b>Username :</b><input type="text" name="Username" placeholder="Username" required/>
+                <input type="text" name="Username" placeholder="Username" required/>
             </p>
             <p>
-                <b>Password :</b><input type="password" name="Password" placeholder="password" required/>
+                <input type="password" name="Password" placeholder="password" required/>
             </p>
-            <input type="submit"/>
+            <div align="center">
+            <input type="submit" value="Login"/>
+            <a style="text-decoration: none" href="register">&nbsp&nbsp&nbsp&nbspRegister</a>
+            </div>
         </form>
+    </div>
     </body>
 </html>
