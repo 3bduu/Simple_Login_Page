@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            body {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background: linear-gradient(120deg,#2980b9,#8e44ad);
+            }
+            .myid {
+                position: absolute;
+                top: 49%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 340px;
+                height: 120px;
+                background: white;
+                border-radius: 20px;
+            }
+            .myid h1 {
+                text-align: center;
+            }
+            .myid p {
+                text-align: center;
+            }
+            #name  em{
+                color: #ecdd07 ;
+            }
+        </style>
         <title>HOME</title>
     </head>
-    <body align="center">
-        
-        {% if user.is_authenticated%}
-        <h1>Hello {{user.username}}</h1>
-        <button onclick="window.location.href='logout';">Logout</button>
-        {% else %}
-        <h1>Hello World</h1>
-        <button onclick="window.location.href='login';">Login</button>
-        <button onclick="window.location.href='register';">Sing up</button>
-        {% endif %} 
+    <body>
+        <div class="myid">
+            {% if user.is_authenticated%}
+            <div id="name">
+                <h1>Hello <em>{{user.username}}</em></h1>
+            </div>
+            <div align="center">
+                <button onclick="window.location.href='logout';">Logout</button>
+            </div> 
+            {% else %}
+            <h1>Hello World</h1>
+            <div align="center">
+                <button onclick="window.location.href='login';">Login</button>
+                <button onclick="window.location.href='register';">Sing up</button>
+            </div>
+            {% endif %}
+        </div> 
     </body>
 </html>
