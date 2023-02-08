@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOME</title>
+    </head>
+    <body align="center">
+        
+        {% if user.is_authenticated%}
+        <h1>Hello {{user.username}}</h1>
+        <button onclick="window.location.href='logout';">Logout</button>
+        {% else %}
+        <h1>Hello World</h1>
+        <button onclick="window.location.href='login';">Login</button>
+        <button onclick="window.location.href='register';">Sing up</button>
+        {% endif %} 
+    </body>
+</html>

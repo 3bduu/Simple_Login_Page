@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Register</title>
+    </head>
+    <body align="center">
+        <h1>Register</h1>
+        {% for message in messages%}
+        <h4 style="color: red; background-color: black;"> {{message}}</h4>
+        {% endfor %}
+        <form method="POST" action="register"  autocomplete="off">
+            {% csrf_token %}
+            <p>
+                <b>Username :</b><input type="text" name="Username" placeholder="Username"/>
+            </p>
+            <p>
+                <b>Email :</b><input type="email" name="Email" placeholder="Email"/>
+            </p>
+            <p>
+                <b>Password :</b><input type="password" name="Password1" placeholder="password" required/>
+            </p>
+            <p>
+                <b>Repeat Password :</b><input type="password" name="Password2" placeholder="password" required/>
+            </p>
+            <input type="submit" />
+        </form>
+    </body>
+</html>
