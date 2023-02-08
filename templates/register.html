@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
     <head>
-        
+        <style>
+            body {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background: linear-gradient(120deg,#2980b9,#8e44ad);
+            }
+            .myid {
+                position: absolute;
+                top: 49%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 340px;
+                height: 300px;
+                background: white;
+                border-radius: 20px;
+            }
+            .myid h1 {
+                text-align: center;
+            }
+            .myid p {
+                text-align: center;
+            }
+        </style>
         <title>Register</title>
     </head>
-    <body align="center">
+    <body>
+        <div class="myid">
         <h1>Register</h1>
         {% for message in messages%}
-        <h4 style="color: red; background-color: black;"> {{message}}</h4>
+        <h4 style="color: red; background-color: black;" align="center"> {{message}}</h4>
         {% endfor %}
+       
         <form method="POST" action="register"  autocomplete="off">
             {% csrf_token %}
             <p>
-                <b>Username :</b><input type="text" name="Username" placeholder="Username"/>
+                <input type="text" name="Username" placeholder="Username"/>
             </p>
             <p>
-                <b>Email :</b><input type="email" name="Email" placeholder="Email"/>
+               <input type="email" name="Email" placeholder="Email"/>
             </p>
             <p>
-                <b>Password :</b><input type="password" name="Password1" placeholder="password" required/>
+                <input type="password" name="Password1" placeholder="password" required/>
             </p>
             <p>
-                <b>Repeat Password :</b><input type="password" name="Password2" placeholder="password" required/>
+                <input type="password" name="Password2" placeholder="Repeat password" required/>
             </p>
-            <input type="submit" />
+            <div align="center">
+                <input type="submit" value="Register" />
+                <a style="text-decoration: none" href="login">&nbsp&nbsp&nbsp&nbspLogin</a>
+            </div>
+            
         </form>
+    </div>
     </body>
 </html>
